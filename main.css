@@ -1,0 +1,123 @@
+#form {
+    background-color: #f2f2f2; /* Change background color */
+    height: 600px; /* Increase height */
+    width: 600px; /* Decrease width */
+    margin: 0 auto;
+    padding: 30px;
+    opacity: 0.9; /* Adjust opacity */
+    border-radius: 10px; /* Add border radius */
+  }
+  
+  #form h3 {
+    border-bottom: 2px solid #ff6600; /* Change border color */
+    width: 250px; /* Increase width */
+    padding: 10px; /* Increase padding */
+  }
+  
+  ::placeholder {
+    color: #888; /* Change placeholder color */
+  }
+  
+  
+  #input #first_name,
+  #input #last_name,
+  #input #email,
+  #input #login_email {
+    width: 100%; /* Make input fields full-width */
+    margin: 10px 0; /* Adjust margin */
+    border: 2px solid #3399ff; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    padding: 10px; /* Increase padding */
+    background-color: #fff; /* Change background color */
+    color: #333; /* Change text color */
+  }
+  
+  #input2 #phone,
+  #input2 #age {
+    width: 100%; /* Make input fields full-width */
+    margin: 10px 0; /* Adjust margin */
+    border: 2px solid #3399ff; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    padding: 10px; /* Increase padding */
+    background-color: #fff; /* Change background color */
+    color: #333; /* Change text color */
+  }
+  
+  #input3 #input-group {
+    margin-left: 0; /* Remove left margin */
+  }
+  
+  #input4 #input-group,
+  #input4 #input-group1 {
+    width: 100%; /* Make input fields full-width */
+    margin: 10px 0; /* Adjust margin */
+    border: 2px solid #3399ff; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    padding: 10px; /* Increase padding */
+    background-color: #fff; /* Change background color */
+    color: #333; /* Change text color */
+  }
+  
+  #input5 h3 {
+    border-bottom: 2px solid #ff6600; /* Change border color */
+    width: 250px; /* Increase width */
+    padding: 10px; /* Increase padding */
+  }
+  
+  #input6 #password,
+  #input6 #login_password {
+    width: 100%; /* Make input fields full-width */
+    margin: 10px 0; /* Adjust margin */
+    border: 2px solid #3399ff; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    padding: 10px; /* Increase padding */
+    background-color: #fff; /* Change background color */
+    color: #333; /* Change text color */
+  }
+  
+  #input6 #input-group1 {
+    width: 100%; /* Make input fields full-width */
+    margin: 10px 0; /* Adjust margin */
+    border: 2px solid #3399ff; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    padding: 10px; /* Increase padding */
+    background-color: #fff; /* Change background color */
+    color: #333; /* Change text color */
+  }
+  
+  #Data {
+    background-color: #fff; /* Change background color */
+    padding: 20px; /* Increase padding */
+    border: 2px solid #ccc; /* Add border */
+    border-radius: 10px; /* Add border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add box shadow */
+  }
+  
+  #Data hr {
+    border: none; /* Remove border */
+    margin-top: 15px; /* Adjust margin */
+    margin-bottom: 15px; /* Adjust margin */
+  }
+  
+  #Data h3 {
+    color: #333; /* Change text color */
+    font-size: 20px; /* Increase font size */
+    margin-top: 0;
+  }
+  
+  #Data p {
+    color: #555; /* Change text color */
+    font-size: 16px; /* Increase font size */
+    margin: 10px 0; /* Adjust margin */
+  }
+  
+  #userImage {
+    width: 150px; /* Increase width */
+    height: 150px; /* Increase height */
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+    right: 20%;
+    transform: translate(50%, -50%);
+  }
+  

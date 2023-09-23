@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Resume</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Include custom CSS for styling -->
+    <style>
+        /* Custom CSS styles */
+        body {
+            background-color: #f2f2f2;
+        }
+    
+        #userDataSection {
+            display: none;
+            margin: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners for the user data section */
+        }
+    
+        .profile-image {
+            max-width: 150px;
+            max-height: 150px;
+            border: 2px solid #fff; /* Add a white border around the image */
+            border-radius: 50%; /* Make the image circular */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow to the image */
+        }
+    
+        /* Style for the About Me and Honor Awards sections */
+        #about, #honor {
+            margin-bottom: 10px;
+        }
+    
+        /* Style for the checkbox labels */
+        label {
+            font-weight: bold;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Login Form -->
+    <form id="loginForm" class="container mt-5">
+        <div class="text-center">
+            <h3 class="text-primary">Login</h3>
+        </div>
+        <div class="form-group">
+            <label for="login_email">Email:</label>
+            <input type="email" id="login_email" class="form-control" placeholder="Email-id">
+        </div>
+        <div class="form-group">
+            <label for="login_password">Password:</label>
+            <input type="password" id="login_password" class="form-control" placeholder="Password">
+        </div>
+        <!-- Add an image URL input field to the login form -->
+        <div class="form-group">
+            <label for="login_image_url">Image URL:</label>
+            <input type="text" id="login_image_url" class="form-control" placeholder="Image URL">
+        </div>
+        <button type="button" onclick="login()" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button type="reset" class="btn btn-secondary">Clear</button>
+    </form>
+
+    <!-- User Data Section -->
+<div id="userDataSection" class="container mt-5">
+    <div class="text-center">
+        <h2 class="text-primary">My Profile</h2>
+        <button type="button" onclick="window.print()" class="btn btn-success float-right">Print PDF</button>
+    </div>
+
+    <div id="Data" class="mt-4">
+        <!-- User profile data will be displayed here -->
+
+    </div>
+</div>
+
+
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include FontAwesome JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        // Your login() function and user data display JavaScript code goes here...
+        function login() {
+            const login_email = document.getElementById('login_email').value;
+            const login_password = document.getElementById('login_password').value;
+            const login_image_url = document.getElementById('login_image_url').value; // Get the image URL
+            const data = {
+                email: login_email,
+                password: login_password,
+                image_url: login_image_url // Include the image URL in the data sent to the server
+            };
+
+            fetch("http://localhost:3000/login", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json(); // Parse the response as JSON
+                } else {
+                    throw new Error('Login failed. Invalid email or password.');
+                }
+            })
+            .then(userProfile => {
+                // Hide the login form
+                document.getElementById('loginForm').style.display = 'none';
+
+                // Show the user data section
+                document.getElementById('userDataSection').style.display = 'block';
+
+                // Display the user profile data with the image on the right side of the name
+                const Data = document.getElementById("Data");
+                Data.innerHTML = `
+                <div class="row">
+                    <div class="col-md-6" style="background-color: green">
+                        <p><strong>First Name:</strong> ${userProfile.first_name}</p>
+                        <p><strong>Last Name:</strong> ${userProfile.last_name}</p>
+                        <p><strong>Gender:</strong> ${userProfile.gender}</p>
+                        <p><strong>Email:</strong> ${userProfile.email}</p>
+                        <p><strong>Age:</strong> ${userProfile.age}</p>
+                        <p><strong>Contact:</strong> ${userProfile.phone}</p>
+                        <br>
+                        <hr>
+                        <h4>Honor Awards:</h4>
+        <input type="text" id="honor" class="form-control" >
+        <input type="text" id="honor" class="form-control" >
+        <input type="text" id="honor" class="form-control" >
+        <h2>Select Your Interests:</h2>
+    <form>
+        <label>
+            <input type="checkbox" name="interest" value="sports"> Sports
+        </label><br>
+        <label>
+            <input type="checkbox" name="interest" value="music"> Music
+        </label><br>
+        <label>
+            <input type="checkbox" name="interest" value="reading"> Reading
+        </label><br>
+        <label>
+            <input type="checkbox" name="interest" value="travel"> Travel
+        </label><br>
+        <label>
+            <input type="checkbox" name="interest" value="cooking"> Cooking
+        </label><br>
+        <!-- Add more checkboxes as needed for different interests -->
+    </form>
+                        
+                    </div>
+                    <div class="col-md-6" >
+                        <!-- Display the image on the right side -->
+                        <img src="${login_image_url}" alt="User Image" class="profile-image">
+                        <h4>About Me:</h4>
+        <input type="text" id="about" class="form-control" placeholder="About me">
+        <h4><span class="icon"><i class="fas fa-cogs"></i></span> Skills:</h4>
+                        <ul id="skillsList">
+                            ${userProfile.skills.map(skill => `<li>${skill}</li>`).join('')}
+                        </ul>
+                        <h4><span class="icon"><i class="fas fa-certificate"></i></span> Qualifications:</h4>
+                        <ul id="educationList">
+                            ${userProfile.education.map(edu => `<li>${edu}</li>`).join('')}
+                        </ul>
+                        <h4><span class="icon"><i class="fas fa-briefcase"></i></span> Experience:</h4>
+                        <ul id="experienceList">
+                            ${userProfile.experience.map(exp => `<li>${exp}</li>`).join('')}
+                        </ul>
+                        <h4><span class="icon"><i class="fas fa-language"></i></span> Languages:</h4>
+                        <ul id="languageList">
+                            ${userProfile.languages.map(lang => `<li>${lang}</li>`).join('')}
+                        </ul>
+       
+                    </div>
+                </div>
+              `;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert(error.message);
+            });
+        }
+
+        function logout() {
+            // Handle logout functionality if needed...
+        }
+    </script>
+</body>
+</html>

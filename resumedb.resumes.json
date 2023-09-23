@@ -1,0 +1,67 @@
+[{
+  "_id": {
+    "$oid": "650e8df6dca48d056468e6a5"
+  },
+  "first_name": "1",
+  "last_name": "1",
+  "email": "1",
+  "gender": "Male",
+  "phone": "1",
+  "age": "1",
+  "password": "1",
+  "skills": [
+    "1",
+    "2"
+  ],
+  "education": [
+    "3",
+    "4"
+  ],
+  "experience": [
+    "5",
+    "6"
+  ],
+  "languages": [
+    "7",
+    "8"
+  ]
+},
+{
+  "_id": {
+    "$oid": "650ea527dca48d056468e6a6"
+  },
+  "first_name": "Nishant",
+  "last_name": "Pandey",
+  "email": "nishantpandey2004@gmail.com",
+  "gender": "Male",
+  "phone": "8928568504",
+  "age": "19",
+  "password": "IT05",
+  "skills": [
+    "HTML",
+    "CSS",
+    "Bootstrap",
+    "Mongodb",
+    "Php",
+    "Python",
+    "Java",
+    "C",
+    "C++",
+    "DSA"
+  ],
+  "education": [
+    "St. Dominic Savio (S.S.C.)",
+    "Sathaye College (H.S.C)",
+    "TCET (B.E. IT)"
+  ],
+  "experience": [
+    "ACM (Technical Member)",
+    "Rotaract (GBM)"
+  ],
+  "languages": [
+    "English",
+    "Hindi",
+    "Marathi",
+    "Bhojpuri"
+  ]
+}]
